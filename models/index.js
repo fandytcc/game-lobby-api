@@ -1,7 +1,7 @@
-const Recipe = require('./recipe')
+const game = require('./game')
 const User = require('./user')
 
 module.exports = {
-  Recipe,
+  game,
   User
 }

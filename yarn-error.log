@@ -15,9 +15,9 @@ Platform:
 
 npm manifest: 
   {
-    "name": "recipes-api",
+    "name": "games-api",
     "version": "1.0.0",
-    "description": "RESTful API to manage Recipes",
+    "description": "RESTful API to manage games",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
@@ -732,7 +732,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
 Trace: 
-  SyntaxError: /Users/fandytcc/Code/Javascript/recipes-api/package.json: Unexpected token } in JSON at position 212
+  SyntaxError: /Users/fandytcc/Code/Javascript/games-api/package.json: Unexpected token } in JSON at position 212
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.3.2/libexec/lib/cli.js:770:59
       at Generator.next (<anonymous>)

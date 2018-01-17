@@ -1,11 +1,23 @@
 const express = require('express')
 const bodyParser = require('body-parser') //middleware
 const passport = require('./config/auth')
-const { recipes, users, sessions } = require('./routes')
+const { games, users, sessions } = require('./routes')
+const http = require('http')
+const socketAuth = require('./config/socket-auth')
+const socketIO = require('socket.io')
 
 const PORT = process.env.PORT || 3030
 
 let app = express()
+const server = http.Server(app)
+const io = socketIO(server)
+
+io.use(socketAuth)
+
+io.on('connect', socket => {
+  socket.emit('ping', `Welcome to the server, ${socket.request.user.name}`)
+  console.log(`${socket.request.user.name} connect to the server`)
+})
 
 app
   .use(bodyParser.urlencoded({ extended: true }))
@@ -17,7 +29,7 @@ app
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE')
     next()
   }) //or yarn add cors, add const cors = require('cors') as a middleware
-  .use(recipes) //our routes
+  .use(games) //our routes
   .use(users)
   .use(sessions)
 
